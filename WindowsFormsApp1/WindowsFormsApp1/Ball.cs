@@ -36,5 +36,9 @@ namespace WindowsFormsApp1
         {
             Left += 1;
         }
+        protected override void DrawImage(Graphics g)
+        {
+            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+        }
     }
 }
