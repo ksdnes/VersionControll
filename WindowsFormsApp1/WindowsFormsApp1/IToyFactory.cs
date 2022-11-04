@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    public class BallFactory : IToyFactory
+    public interface IToyFactory
     {
-        public Ball CreateNew()
-        {
-            return new Ball();
-        }
+        Toy CreateNew();
 
     }
 }
