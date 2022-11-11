@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,7 +43,28 @@ namespace gyak07
                                       select x)
                                         .ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
-        }
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() != DialogResult.OK) return;
+            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+            {
+                sw.Write("Időszak");
+                sw.Write("Nyereség");
+                int counter = 0;
+
+                foreach (var s in nyereségekRendezve)
+                {
+                    counter++;
+                    sw.WriteLine();
+                    sw.Write(counter);
+                    sw.Write(":");
+                    sw.Write(s.ToString());
+                   
+                    
+                    
+                }
+            }
+            }
         private void CreatePortfolio()
         {
             Portfolio.Add(new PortfolioItem() { Index = "OTP", Volume = 10 });
@@ -65,5 +87,7 @@ namespace gyak07
             }
             return value;
         }
+
+       
     }
 }
