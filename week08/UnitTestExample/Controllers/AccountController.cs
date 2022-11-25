@@ -41,6 +41,11 @@ namespace UnitTestExample.Controllers
             return newAccount;
         }
 
+        public object ValidatePassword(object password)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool ValidateEmail(string email)
         {            
             return Regex.IsMatch(
@@ -50,6 +55,7 @@ namespace UnitTestExample.Controllers
 
         public bool ValidatePassword(string password)
         {
+            var a = Regex.IsMatch(password, @"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#@$?]).{8,}$");
             return true;
         }
     }
