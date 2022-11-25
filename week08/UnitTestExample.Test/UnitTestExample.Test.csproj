@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="AccountControllerTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
